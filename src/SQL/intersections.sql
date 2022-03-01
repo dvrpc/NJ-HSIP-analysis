@@ -48,8 +48,16 @@ ped_intersections as (
 )
 select
 	i.*,
-	pedbike.*,
-	ped.*,
+	pedbike.pedbike_intersections,
+	pedbike.pedbike_mporank,
+	pedbike.pedbike_top_countyrank,
+	pedbike.pedbike_countyrank,
+	pedbike.pedbike_top_countyrank,
+	ped.ped_intersections,
+	ped.ped_mporank,
+	ped.ped_top_countyrank,
+	ped.ped_countyrank,
+	ped.ped_top_countyrank,
 	c.shape
 from all_intersections i
 left join
