@@ -1,6 +1,8 @@
+-- Find the number of and rank of HSIP intersections along each HSIP corridor
+
 select
 	c.objectid,
-	count(i.*),
+	count(i.*) as num_intersections,
 	array_agg(i.rank::int) as mporank,
 	min(i.rank::int) as top_mporank,
 	array_agg(i.countyrank::int) as countyrank,
@@ -11,7 +13,10 @@ from
 
 left join
 	transportation.hsip_intersections_2019 i
-	on st_dwithin(i.shape, c.shape, 30.48)
+	on
+        st_dwithin(i.shape, c.shape, 30.48)
 
-group by c.objectid
-order by count(i.*) desc
+group by
+    c.objectid
+order by
+    count(i.*) desc
