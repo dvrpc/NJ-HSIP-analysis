@@ -10,7 +10,12 @@ Create the Python environment with:
 conda env create -f environment.yml
 ```
 
-Create a file named `.env` at the root of this project, with a connection string to DVRPC's GIS database, and a folder path to wherever you want to save the output shapefile. For example:
+Create a file named `.env` at the root of this project and add the following entries:
+
+    - `DATABASE_URL` is a connection string to DVRPC's GIS database
+    - `OUTPUT_FOLDER` is a folder path to wherever you want to save the output shapefile and geojson
+
+For example:
 
 ```
 DATABASE_URL=postgresql://username:password@host:port/database
