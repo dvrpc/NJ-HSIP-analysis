@@ -75,13 +75,6 @@ for tbl in corridor_tables:
     # Get the result of the spatial query as a GeoDataFrame
     gdf = get_gdf(query)
 
-    # Add columns that identify the source of the geometry,
-    # along with which tables are "A", "B", and "C"
-    gdf["src_corridor"] = tbl
-    gdf["a_corridor"] = other_tables[0]
-    gdf["b_corridor"] = other_tables[1]
-    gdf["c_corridor"] = other_tables[2]
-
     # Add GeoDataFrame to the result list
     results.append(gdf)
 
